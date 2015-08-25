@@ -12,14 +12,15 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        // Fetch fires!
+        guard let url = NSURL(string: "http://opendata.minneapolismn.gov/datasets/b527484ac4eb490ea321b35fd5bcec43_0.geojson") else {
+            // Bad URL, Create Logging operation
+            return
+        }
+        
+        // Good URL, Add the operation
+        let operation = NetworkOperation(url: url)
+        OperationManager.sharedManager.addOperation(operation)
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-
 }
-
