@@ -21,10 +21,15 @@ class FireViewController: UIViewController {
     @IBOutlet weak var descriptionLabel: UILabel!
 
     @IBOutlet weak var addressLabel: UILabel!
+
+    @IBOutlet weak var mapView: MKMapView!
+    
     var fire: Fire? {
         didSet {
             if let fire = fire {
                 setupFetchedResultsController()
+                title = fire.fireDescription
+                
                 let locationLookup = LocationLookupOperation(location: CLLocation(latitude: fire.coordinate.latitude, longitude: fire.coordinate.longitude), fire: fire)
                 OperationManager.sharedManager.addOperation(locationLookup)
             }
@@ -42,8 +47,18 @@ class FireViewController: UIViewController {
         super.viewDidLoad()
         
         descriptionLabel.text = fire?.fireDescription
-        
-        // Reverse GeoLocate the address
+
+        mapView.delegate = self
+        mapView.scrollEnabled = false
+        mapView.zoomEnabled = false
+        mapView.pitchEnabled = false
+        mapView.rotateEnabled = false
+
+        if let fire = fire {
+            mapView.addAnnotation(fire)
+            mapView.setVisibleMapRect(MKMapRect(origin: MKMapPointForCoordinate(fire.coordinate), size: MKMapSizeMake(0, 3000)), animated: false)
+            mapView.setCenterCoordinate(fire.coordinate, animated: false)
+        }
 
     }
     
@@ -85,3 +100,15 @@ extension FireViewController: NSFetchedResultsControllerDelegate {
         updateFireViews()
     }
 }
+
+extension FireViewController: MKMapViewDelegate {
+    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
+        guard let annotation = annotation as? Fire else { return nil }
+        let pin = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "annotationViewIdentifier")
+        pin.canShowCallout = false
+        return pin
+    }
+    
+}
+
+

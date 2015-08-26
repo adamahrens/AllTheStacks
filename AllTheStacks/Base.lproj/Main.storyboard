@@ -48,7 +48,6 @@
                                                 <animations/>
                                                 <state key="normal" title="Button 3"/>
                                                 <connections>
-                                                    <action selector="buttonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vFd-WT-cex"/>
                                                     <segue destination="qv7-WF-0u3" kind="show" identifier="fireDetailsIdentifier" id="LGM-Q8-hqR"/>
                                                 </connections>
                                             </button>
@@ -94,27 +93,37 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="QE4-Ux-dzE">
                                 <rect key="frame" x="20" y="20" width="560" height="560"/>
                                 <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="ujw-6j-ME3">
+                                        <rect key="frame" x="0.0" y="0.0" width="560" height="30"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Xr-Ee-7qs">
+                                                <rect key="frame" x="0.0" y="0.0" width="42" height="30"/>
+                                                <animations/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AgT-qc-F6Z">
+                                                <rect key="frame" x="518" y="0.0" width="42" height="30"/>
+                                                <animations/>
+                                                <state key="normal" title="DONE"/>
+                                                <connections>
+                                                    <action selector="buttonPressed:" destination="qv7-WF-0u3" eventType="touchUpInside" id="5wv-9i-iD4"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <animations/>
+                                    </stackView>
+                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="FjI-5g-o6U">
+                                        <rect key="frame" x="0.0" y="30" width="560" height="103"/>
+                                        <animations/>
+                                    </mapView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="faU-ex-6te">
-                                        <rect key="frame" x="0.0" y="0.0" width="560" height="493"/>
+                                        <rect key="frame" x="0.0" y="133" width="560" height="406.5"/>
                                         <animations/>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AgT-qc-F6Z">
-                                        <rect key="frame" x="0.0" y="493" width="560" height="28"/>
-                                        <animations/>
-                                        <state key="normal" title="Button"/>
-                                        <connections>
-                                            <action selector="buttonPressed:" destination="qv7-WF-0u3" eventType="touchUpInside" id="5wv-9i-iD4"/>
-                                        </connections>
-                                    </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="faK-rL-g24">
-                                        <rect key="frame" x="0.0" y="521" width="560" height="19.5"/>
-                                        <animations/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cnn-gG-PmV">
-                                        <rect key="frame" x="0.0" y="540.5" width="560" height="19.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="faK-rL-g24">
+                                        <rect key="frame" x="0.0" y="539.5" width="560" height="20.5"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -134,9 +143,10 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="addressLabel" destination="Cnn-gG-PmV" id="a5l-Lr-jMb"/>
+                        <outlet property="addressLabel" destination="0Xr-Ee-7qs" id="8CV-t3-xbu"/>
                         <outlet property="descriptionLabel" destination="faK-rL-g24" id="qv9-SZ-95q"/>
                         <outlet property="imageView" destination="faU-ex-6te" id="SbR-BH-qiT"/>
+                        <outlet property="mapView" destination="FjI-5g-o6U" id="Eb2-hU-9sM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8RY-vf-CcW" userLabel="First Responder" sceneMemberID="firstResponder"/>
