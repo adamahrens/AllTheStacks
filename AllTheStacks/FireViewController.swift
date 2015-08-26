@@ -43,14 +43,27 @@ class FireViewController: UIViewController {
         }
     }
     
+    var images: [UIImage] = []
+    var imageTimer: NSTimer?
+    
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+        imageTimer?.invalidate()
+        imageTimer = nil
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "imageDownloaded:", name: "ImageDownloaded", object: nil)
         
         guard let fire = fire else {
             return
         }
         
         descriptionLabel.text = fire.fireDescription
+        
+        imageView.contentMode = .ScaleAspectFill
 
         mapView.delegate = self
         mapView.scrollEnabled = false
@@ -76,6 +89,19 @@ class FireViewController: UIViewController {
         // We dont want the image to start until we have the data
         OperationManager.sharedManager.addOperation(imageFetcherOperation)
         OperationManager.sharedManager.addOperation(networkOperation)
+        
+        imageTimer = NSTimer.scheduledTimerWithTimeInterval(5.0, target: self, selector: "swapImage", userInfo: nil, repeats: true)
+    }
+    
+    func swapImage() {
+        if images.count == 0 {
+            return
+        }
+        let randomIndex = Int(arc4random_uniform(UInt32(images.count)))
+        UIView.animateWithDuration(0.5, delay: 0.0, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: { [weak self] in
+            self?.imageView.image = self?.images[randomIndex]
+        }, completion: nil)
+
     }
     
     func updateFireViews() {
@@ -104,6 +130,12 @@ class FireViewController: UIViewController {
         }
         
         self.fetchedResultsController = fetchedResultsController
+    }
+    
+    func imageDownloaded(notification: NSNotification) {
+        if let image = notification.object as? UIImage {
+            images.append(image)
+        }
     }
 }
 
