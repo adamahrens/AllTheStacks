@@ -13,6 +13,9 @@ final class NetworkOperation: NSOperation {
     // The URL to fetch data
     private let url: NSURL
     
+    // CoreData Operations
+    var coreDataOperations = [CoreDataOperation]()
+    
     init(url: NSURL) {
         self.url = url
     }
@@ -28,17 +31,19 @@ final class NetworkOperation: NSOperation {
             return
         }
 
-        let session = NSURLSession.sharedSession()
-        let task = session.dataTaskWithURL(url) { data, response, error in
-            guard let data = data, let response = response as? NSHTTPURLResponse else {
+        do {
+            let request = NSURLRequest(URL: url)
+            var response: NSURLResponse?
+            let data = try NSURLConnection.sendSynchronousRequest(request, returningResponse: &response)
+            
+            guard let httpResponse = response as? NSHTTPURLResponse else {
                 return
             }
             
             // What's the Response
-            let localizedResponse = NSHTTPURLResponse.localizedStringForStatusCode(response.statusCode)
+            let localizedResponse = NSHTTPURLResponse.localizedStringForStatusCode(httpResponse.statusCode)
             let updatedMessage = "Fetched from \(self.url.absoluteString) with result of \(localizedResponse)"
             let logOperation = LogOperation(logMessage: updatedMessage)
-            
             
             do {
                 // Let's serialize the data like a boss
@@ -47,22 +52,17 @@ final class NetworkOperation: NSOperation {
                 
                 // More dependencies
                 logOperation.addDependency(serializedOperation)
-                OperationManager.sharedManager.addOperation(serializedOperation)
-                OperationManager.sharedManager.addOperation(logOperation)
+                //OperationManager.sharedManager.addOperation(serializedOperation)
+                //OperationManager.sharedManager.addOperation(logOperation)
                 
-                // See if we have any CoreData Dependencies
-                // That we need to pass the data to
-                for dependency in self.dependencies {
-                    if let coreDataDependency = dependency as? CoreDataOperation {
-                        coreDataDependency.dictionary = serialized
-                    }
+                for dependency in coreDataOperations {
+                    dependency.dictionary = serialized
                 }
             } catch {
-                
+                // Handle JSON parsing error
             }
+        } catch {
+            // Handle NSURLConnection request error
         }
-        
-        // Start the task
-        task.resume()
     }
 }

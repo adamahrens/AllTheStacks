@@ -14,7 +14,7 @@ final class OperationManager {
     static let sharedManager = OperationManager()
     
     //MARK: Private Var
-    private let backgroundQueue = NSOperationQueue()
+    let backgroundQueue = NSOperationQueue()
     
     init() {
         
