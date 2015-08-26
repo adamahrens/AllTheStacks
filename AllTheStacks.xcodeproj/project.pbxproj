@@ -23,6 +23,7 @@
 		435120141B8D043B003A711B /* CoreDataOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435120131B8D043B003A711B /* CoreDataOperation.swift */; };
 		435120171B8D0583003A711B /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435120161B8D0583003A711B /* CoreDataManager.swift */; };
 		43886CDB1B8E3FAC004946F8 /* Fire+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43886CDA1B8E3FAC004946F8 /* Fire+CoreDataProperties.swift */; settings = {ASSET_TAGS = (); }; };
+		43886CDF1B8E4B1E004946F8 /* FlickrAPI.plist in Resources */ = {isa = PBXBuildFile; fileRef = 43886CDE1B8E4B1E004946F8 /* FlickrAPI.plist */; settings = {ASSET_TAGS = (); }; };
 		722C59EA1B8E253D00329DCB /* FireViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722C59E91B8E253D00329DCB /* FireViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +46,7 @@
 		435120131B8D043B003A711B /* CoreDataOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataOperation.swift; sourceTree = "<group>"; };
 		435120161B8D0583003A711B /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		43886CDA1B8E3FAC004946F8 /* Fire+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Fire+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		43886CDE1B8E4B1E004946F8 /* FlickrAPI.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = FlickrAPI.plist; sourceTree = "<group>"; };
 		722C59E91B8E253D00329DCB /* FireViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FireViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -97,6 +99,8 @@
 				43511FFC1B8CE650003A711B /* Main.storyboard */,
 				4351200E1B8CED1E003A711B /* Operations */,
 				431B8F851B8D47AD00E5DCD3 /* FireModel.xcdatamodeld */,
+				722C59E91B8E253D00329DCB /* FireViewController.swift */,
+				43886CDE1B8E4B1E004946F8 /* FlickrAPI.plist */,
 			);
 			path = AllTheStacks;
 			sourceTree = "<group>";
@@ -192,6 +196,7 @@
 			files = (
 				435120031B8CE650003A711B /* LaunchScreen.storyboard in Resources */,
 				435120001B8CE650003A711B /* Assets.xcassets in Resources */,
+				43886CDF1B8E4B1E004946F8 /* FlickrAPI.plist in Resources */,
 				43511FFE1B8CE650003A711B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
