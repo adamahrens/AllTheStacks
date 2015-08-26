@@ -87,10 +87,13 @@ class ViewController: UIViewController {
                 mapView.addAnnotation(fire)
             }
             
-            fires.reduce(CGRectZero) {
             
+            let zoomRect = fires.reduce(MKMapRectNull) { (mapRect: MKMapRect, fire: Fire) in
+                let point = MKMapRect(origin: MKMapPointForCoordinate(fire.coordinate), size: MKMapSizeMake(0, 0))
+                return MKMapRectUnion(mapRect, point)
             }
             
+            self.mapView.setVisibleMapRect(zoomRect, edgePadding: UIEdgeInsetsMake(74, 10, 10, 10), animated: true)
         }
     }
 
