@@ -56,4 +56,10 @@ extension Fire: MKAnnotation {
             return CLLocationCoordinate2D(latitude: CLLocationDegrees(latitude!), longitude: CLLocationDegrees(longitude!))
         }
     }
+    
+    var title: String? {
+        get {
+            return fireDescription
+        }
+    }
 }

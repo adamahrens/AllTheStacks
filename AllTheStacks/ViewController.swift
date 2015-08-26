@@ -86,8 +86,7 @@ class ViewController: UIViewController {
                 mapView.removeAnnotation(fire) // just in case it's on there already
                 mapView.addAnnotation(fire)
             }
-            
-            
+   
             let zoomRect = fires.reduce(MKMapRectNull) { (mapRect: MKMapRect, fire: Fire) in
                 let point = MKMapRect(origin: MKMapPointForCoordinate(fire.coordinate), size: MKMapSizeMake(0, 0))
                 return MKMapRectUnion(mapRect, point)
