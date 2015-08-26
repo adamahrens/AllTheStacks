@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="8175.2" systemVersion="14F27" minimumToolsVersion="Xcode 7.0">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="8193.2" systemVersion="14F27" minimumToolsVersion="Xcode 7.0">
+    <entity name="Address" representedClassName=".Address" syncable="YES">
+        <attribute name="city" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="country" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="postalCode" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="fire" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Fire" inverseName="address" inverseEntity="Fire" syncable="YES"/>
+    </entity>
     <entity name="Fire" representedClassName=".Fire" syncable="YES">
         <attribute name="endDate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="fireDescription" optional="YES" attributeType="String" syncable="YES"/>
@@ -7,8 +14,10 @@
         <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="startDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="address" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Address" inverseName="fire" inverseEntity="Address" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Fire" positionX="-63" positionY="-18" width="128" height="135"/>
+        <element name="Fire" positionX="-360" positionY="-27" width="128" height="148"/>
+        <element name="Address" positionX="-63" positionY="27" width="128" height="118"/>
     </elements>
 </model>

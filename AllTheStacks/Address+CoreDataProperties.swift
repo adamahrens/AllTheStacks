@@ -1,5 +1,5 @@
 //
-//  Fire+CoreDataProperties.swift
+//  Address+CoreDataProperties.swift
 //  AllTheStacks
 //
 //  Created by Adam Ahrens on 8/26/15.
@@ -12,14 +12,12 @@
 import Foundation
 import CoreData
 
-extension Fire {
+extension Address {
 
-    @NSManaged var endDate: NSDate?
-    @NSManaged var fireDescription: String?
-    @NSManaged var id: NSNumber?
-    @NSManaged var latitude: NSNumber?
-    @NSManaged var longitude: NSNumber?
-    @NSManaged var startDate: NSDate?
-    @NSManaged var address: Address?
+    @NSManaged var name: String?
+    @NSManaged var city: String?
+    @NSManaged var postalCode: String?
+    @NSManaged var country: String?
+    @NSManaged var fire: Fire?
 
 }

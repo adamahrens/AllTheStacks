@@ -8,8 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		431AF4201B8E391E00830BB1 /* LocationLookupOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431AF41F1B8E391E00830BB1 /* LocationLookupOperation.swift */; settings = {ASSET_TAGS = (); }; };
+		431AF4251B8E3F3700830BB1 /* Address+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431AF4221B8E3F3700830BB1 /* Address+CoreDataProperties.swift */; settings = {ASSET_TAGS = (); }; };
+		431AF4261B8E3F3700830BB1 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431AF4231B8E3F3700830BB1 /* Address.swift */; settings = {ASSET_TAGS = (); }; };
 		431B8F871B8D47AD00E5DCD3 /* FireModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 431B8F851B8D47AD00E5DCD3 /* FireModel.xcdatamodeld */; };
-		431B8F8B1B8D526200E5DCD3 /* Fire+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431B8F891B8D526200E5DCD3 /* Fire+CoreDataProperties.swift */; };
 		431B8F8C1B8D526200E5DCD3 /* Fire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431B8F8A1B8D526200E5DCD3 /* Fire.swift */; };
 		43511FF91B8CE650003A711B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43511FF81B8CE650003A711B /* AppDelegate.swift */; };
 		43511FFB1B8CE650003A711B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43511FFA1B8CE650003A711B /* ViewController.swift */; };
@@ -21,13 +22,15 @@
 		435120121B8CFD77003A711B /* LogOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435120111B8CFD77003A711B /* LogOperation.swift */; };
 		435120141B8D043B003A711B /* CoreDataOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435120131B8D043B003A711B /* CoreDataOperation.swift */; };
 		435120171B8D0583003A711B /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435120161B8D0583003A711B /* CoreDataManager.swift */; };
+		43886CDB1B8E3FAC004946F8 /* Fire+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43886CDA1B8E3FAC004946F8 /* Fire+CoreDataProperties.swift */; settings = {ASSET_TAGS = (); }; };
 		722C59EA1B8E253D00329DCB /* FireViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722C59E91B8E253D00329DCB /* FireViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		431AF41F1B8E391E00830BB1 /* LocationLookupOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationLookupOperation.swift; sourceTree = "<group>"; };
+		431AF4221B8E3F3700830BB1 /* Address+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Address+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		431AF4231B8E3F3700830BB1 /* Address.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
 		431B8F861B8D47AD00E5DCD3 /* FireModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FireModel.xcdatamodel; sourceTree = "<group>"; };
-		431B8F891B8D526200E5DCD3 /* Fire+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Fire+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		431B8F8A1B8D526200E5DCD3 /* Fire.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fire.swift; sourceTree = "<group>"; };
 		43511FF51B8CE650003A711B /* AllTheStacks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AllTheStacks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43511FF81B8CE650003A711B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -41,6 +44,7 @@
 		435120111B8CFD77003A711B /* LogOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogOperation.swift; sourceTree = "<group>"; };
 		435120131B8D043B003A711B /* CoreDataOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataOperation.swift; sourceTree = "<group>"; };
 		435120161B8D0583003A711B /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		43886CDA1B8E3FAC004946F8 /* Fire+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Fire+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		722C59E91B8E253D00329DCB /* FireViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FireViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -58,7 +62,9 @@
 		431B8F881B8D523D00E5DCD3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				431B8F891B8D526200E5DCD3 /* Fire+CoreDataProperties.swift */,
+				43886CDA1B8E3FAC004946F8 /* Fire+CoreDataProperties.swift */,
+				431AF4221B8E3F3700830BB1 /* Address+CoreDataProperties.swift */,
+				431AF4231B8E3F3700830BB1 /* Address.swift */,
 				431B8F8A1B8D526200E5DCD3 /* Fire.swift */,
 			);
 			name = Model;
@@ -200,13 +206,15 @@
 				431AF4201B8E391E00830BB1 /* LocationLookupOperation.swift in Sources */,
 				435120121B8CFD77003A711B /* LogOperation.swift in Sources */,
 				435120101B8CED50003A711B /* NetworkOperation.swift in Sources */,
+				43886CDB1B8E3FAC004946F8 /* Fire+CoreDataProperties.swift in Sources */,
 				43511FFB1B8CE650003A711B /* ViewController.swift in Sources */,
 				43511FF91B8CE650003A711B /* AppDelegate.swift in Sources */,
 				722C59EA1B8E253D00329DCB /* FireViewController.swift in Sources */,
 				435120141B8D043B003A711B /* CoreDataOperation.swift in Sources */,
 				431B8F8C1B8D526200E5DCD3 /* Fire.swift in Sources */,
 				431B8F871B8D47AD00E5DCD3 /* FireModel.xcdatamodeld in Sources */,
-				431B8F8B1B8D526200E5DCD3 /* Fire+CoreDataProperties.swift in Sources */,
+				431AF4261B8E3F3700830BB1 /* Address.swift in Sources */,
+				431AF4251B8E3F3700830BB1 /* Address+CoreDataProperties.swift in Sources */,
 				435120171B8D0583003A711B /* CoreDataManager.swift in Sources */,
 				4351200C1B8CE90F003A711B /* OperationManager.swift in Sources */,
 			);
