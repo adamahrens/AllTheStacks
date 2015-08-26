@@ -61,10 +61,9 @@ class CoreDataManager: NSObject {
     func backgroundManagedObjectContextDidSave(notification: NSNotification) {
         // Dont know the thread called on but want the backgroundContext
         // To propogate the changes to the main thread context
-        NSOperationQueue.mainQueue().addOperationWithBlock {
-            
+        if let _ = notification.userInfo {
+            self.mainManagedObjectContext.mergeChangesFromContextDidSaveNotification(notification)
         }
-        self.mainManagedObjectContext.mergeChangesFromContextDidSaveNotification(notification)
     }
     
     func applicationDocumentsDirectory() -> NSURL? {

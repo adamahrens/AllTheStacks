@@ -7,11 +7,31 @@
 //
 
 import UIKit
+import MapKit
+import CoreData
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var mapView: MKMapView!
+
+    @IBAction func buttonPressed(sender: AnyObject) {
+        guard let button = sender as? UIButton else { return }
+        
+        print(button.titleLabel?.text)
+    }
+    
+    var managedObjectContext: NSManagedObjectContext {
+        get {
+            return CoreDataManager.sharedManager.backgroundManagedObjectContext
+        }
+    }
+    
+    var fetchedResultsController: NSFetchedResultsController?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        setupFetchedResultsController()
         
         // Fetch fires!
         guard let url = NSURL(string: "http://opendata.minneapolismn.gov/datasets/b527484ac4eb490ea321b35fd5bcec43_0.geojson") else {
@@ -33,5 +53,39 @@ class ViewController: UIViewController {
         // Add the operations to be executed
         OperationManager.sharedManager.addOperation(fetchFireDetails)
         OperationManager.sharedManager.addOperation(coreDataOperation)
+        
     }
+    
+    func setupFetchedResultsController() {
+        let request = NSFetchRequest()
+        let entity = NSEntityDescription.entityForName("Fire", inManagedObjectContext: managedObjectContext)
+        request.entity = entity
+        
+        let sort = NSSortDescriptor(key: "id", ascending: true)
+        request.sortDescriptors = [sort]
+        
+        let fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
+        fetchedResultsController.delegate = self
+        
+        do {
+            try fetchedResultsController.performFetch()
+        } catch {
+            print("¯\\_(ツ)_/¯")
+        }
+        
+        self.fetchedResultsController = fetchedResultsController
+    }
+}
+
+extension ViewController: NSFetchedResultsControllerDelegate {
+    
+//    func controllerDidChangeContent(controller: NSFetchedResultsController) {
+//        print(controller)
+//        print(controller.fetchRequest)
+//        print(controller.fetchedObjects)
+//        print("pause")
+//    }
+    
+
+    
 }

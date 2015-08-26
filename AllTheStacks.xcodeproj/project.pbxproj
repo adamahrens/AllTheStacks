@@ -20,6 +20,7 @@
 		435120121B8CFD77003A711B /* LogOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435120111B8CFD77003A711B /* LogOperation.swift */; };
 		435120141B8D043B003A711B /* CoreDataOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435120131B8D043B003A711B /* CoreDataOperation.swift */; };
 		435120171B8D0583003A711B /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435120161B8D0583003A711B /* CoreDataManager.swift */; };
+		722C59EA1B8E253D00329DCB /* FireViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722C59E91B8E253D00329DCB /* FireViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		435120111B8CFD77003A711B /* LogOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogOperation.swift; sourceTree = "<group>"; };
 		435120131B8D043B003A711B /* CoreDataOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataOperation.swift; sourceTree = "<group>"; };
 		435120161B8D0583003A711B /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		722C59E91B8E253D00329DCB /* FireViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FireViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 				43511FFC1B8CE650003A711B /* Main.storyboard */,
 				4351200E1B8CED1E003A711B /* Operations */,
 				431B8F851B8D47AD00E5DCD3 /* FireModel.xcdatamodeld */,
+				722C59E91B8E253D00329DCB /* FireViewController.swift */,
 			);
 			path = AllTheStacks;
 			sourceTree = "<group>";
@@ -195,6 +198,7 @@
 				435120101B8CED50003A711B /* NetworkOperation.swift in Sources */,
 				43511FFB1B8CE650003A711B /* ViewController.swift in Sources */,
 				43511FF91B8CE650003A711B /* AppDelegate.swift in Sources */,
+				722C59EA1B8E253D00329DCB /* FireViewController.swift in Sources */,
 				435120141B8D043B003A711B /* CoreDataOperation.swift in Sources */,
 				431B8F8C1B8D526200E5DCD3 /* Fire.swift in Sources */,
 				431B8F871B8D47AD00E5DCD3 /* FireModel.xcdatamodeld in Sources */,
