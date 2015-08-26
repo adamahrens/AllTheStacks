@@ -24,6 +24,7 @@
 		435120171B8D0583003A711B /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435120161B8D0583003A711B /* CoreDataManager.swift */; };
 		43886CDB1B8E3FAC004946F8 /* Fire+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43886CDA1B8E3FAC004946F8 /* Fire+CoreDataProperties.swift */; settings = {ASSET_TAGS = (); }; };
 		43886CDF1B8E4B1E004946F8 /* FlickrAPI.plist in Resources */ = {isa = PBXBuildFile; fileRef = 43886CDE1B8E4B1E004946F8 /* FlickrAPI.plist */; settings = {ASSET_TAGS = (); }; };
+		43886CE11B8E5E47004946F8 /* ImageFetcherOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43886CE01B8E5E47004946F8 /* ImageFetcherOperation.swift */; settings = {ASSET_TAGS = (); }; };
 		722C59EA1B8E253D00329DCB /* FireViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722C59E91B8E253D00329DCB /* FireViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +48,7 @@
 		435120161B8D0583003A711B /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		43886CDA1B8E3FAC004946F8 /* Fire+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Fire+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		43886CDE1B8E4B1E004946F8 /* FlickrAPI.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = FlickrAPI.plist; sourceTree = "<group>"; };
+		43886CE01B8E5E47004946F8 /* ImageFetcherOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageFetcherOperation.swift; sourceTree = "<group>"; };
 		722C59E91B8E253D00329DCB /* FireViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FireViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -123,6 +125,7 @@
 				435120111B8CFD77003A711B /* LogOperation.swift */,
 				435120131B8D043B003A711B /* CoreDataOperation.swift */,
 				431AF41F1B8E391E00830BB1 /* LocationLookupOperation.swift */,
+				43886CE01B8E5E47004946F8 /* ImageFetcherOperation.swift */,
 			);
 			name = Operations;
 			sourceTree = "<group>";
@@ -211,6 +214,7 @@
 				435120121B8CFD77003A711B /* LogOperation.swift in Sources */,
 				435120101B8CED50003A711B /* NetworkOperation.swift in Sources */,
 				43886CDB1B8E3FAC004946F8 /* Fire+CoreDataProperties.swift in Sources */,
+				43886CE11B8E5E47004946F8 /* ImageFetcherOperation.swift in Sources */,
 				43511FFB1B8CE650003A711B /* ViewController.swift in Sources */,
 				43511FF91B8CE650003A711B /* AppDelegate.swift in Sources */,
 				722C59EA1B8E253D00329DCB /* FireViewController.swift in Sources */,

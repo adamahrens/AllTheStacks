@@ -60,6 +60,21 @@ class FireViewController: UIViewController {
             mapView.setCenterCoordinate(fire.coordinate, animated: false)
         }
 
+        descriptionLabel.text = fire.fireDescription
+        
+        // Fetch some addresses
+        let url = NSURL(string: "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=cae917bfb457529b14265845da90e096&lat=\(fire.latitude!.doubleValue)&lon=\(fire.longitude!.doubleValue)&format=json&nojsoncallback=1")
+        let networkOperation = NetworkOperation(url: url!)
+        
+        let imageFetcherOperation = ImageFetcherOperation()
+        imageFetcherOperation.addDependency(networkOperation)
+        
+        // Let it know
+        networkOperation.imageFetchOperations.append(imageFetcherOperation)
+        
+        // We dont want the image to start until we have the data
+        OperationManager.sharedManager.addOperation(imageFetcherOperation)
+        OperationManager.sharedManager.addOperation(networkOperation)
     }
     
     func updateFireViews() {
@@ -88,11 +103,7 @@ class FireViewController: UIViewController {
         }
         
         self.fetchedResultsController = fetchedResultsController
-        
     }
-
-
-    
 }
 
 extension FireViewController: NSFetchedResultsControllerDelegate {

@@ -15,6 +15,7 @@ final class NetworkOperation: NSOperation {
     
     // CoreData Operations
     var coreDataOperations = [CoreDataOperation]()
+    var imageFetchOperations = [ImageFetcherOperation]()
     
     init(url: NSURL) {
         self.url = url
@@ -57,6 +58,10 @@ final class NetworkOperation: NSOperation {
                 
                 for dependency in coreDataOperations {
                     dependency.dictionary = serialized
+                }
+                
+                for imageDependency in imageFetchOperations {
+                    imageDependency.dictionary = serialized
                 }
             } catch {
                 // Handle JSON parsing error
