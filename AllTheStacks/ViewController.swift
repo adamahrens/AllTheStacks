@@ -30,6 +30,8 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        mapView.delegate = self
 
         setupFetchedResultsController()
         
@@ -99,24 +101,34 @@ class ViewController: UIViewController {
             self.mapView.setVisibleMapRect(zoomRect, edgePadding: UIEdgeInsetsMake(74, 10, 10, 10), animated: true)
         }
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let fireViewController = segue.destinationViewController as? FireViewController, fire = sender as? Fire where segue.identifier == "fireDetailsIdentifier" {
+            fireViewController.fire = fire
+        }
+    }
+    
 }
 
 extension ViewController: NSFetchedResultsControllerDelegate {
-    
     func controllerDidChangeContent(controller: NSFetchedResultsController) {
         refreshMap()
     }
+}
+
+extension ViewController: MKMapViewDelegate {
+    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
+        guard let annotation = annotation as? Fire else { return nil }
+        let pin = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "annotationViewIdentifier")
+        pin.canShowCallout = true
+        pin.rightCalloutAccessoryView = UIButton(type: UIButtonType.DetailDisclosure)
+        return pin
+    }
     
-//    func controller(controller: NSFetchedResultsController,
-//        didChangeObject anObject: AnyObject,
-//        atIndexPath indexPath: NSIndexPath?,
-//        forChangeType type: NSFetchedResultsChangeType,
-//        newIndexPath newIndexPath: NSIndexPath?) {
-//            
-//            if let fire = anObject as? Fire where type == .Insert {
-//                print("got a new one! \(anObject)")
-//                mapView.addAnnotation(fire)
-//            }
-//            
-//    }
+    func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        guard let fire = view.annotation as? Fire else { return }
+        
+        performSegueWithIdentifier("fireDetailsIdentifier", sender: fire)
+        
+    }
 }

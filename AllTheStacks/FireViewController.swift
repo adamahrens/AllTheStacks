@@ -13,4 +13,17 @@ class FireViewController: UIViewController {
     @IBAction func buttonPressed(sender: AnyObject) {
         dismissViewControllerAnimated(true, completion: nil)
     }
+    
+    var fire: Fire? {
+        didSet {
+            print(fire)
+            // update view
+        }
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+
+    
 }
