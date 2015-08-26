@@ -46,7 +46,11 @@ class FireViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        descriptionLabel.text = fire?.fireDescription
+        guard let fire = fire else {
+            return
+        }
+        
+        descriptionLabel.text = fire.fireDescription
 
         mapView.delegate = self
         mapView.scrollEnabled = false
@@ -54,12 +58,9 @@ class FireViewController: UIViewController {
         mapView.pitchEnabled = false
         mapView.rotateEnabled = false
 
-        if let fire = fire {
-            mapView.addAnnotation(fire)
-            mapView.setVisibleMapRect(MKMapRect(origin: MKMapPointForCoordinate(fire.coordinate), size: MKMapSizeMake(0, 3000)), animated: false)
-            mapView.setCenterCoordinate(fire.coordinate, animated: false)
-        }
-
+        mapView.addAnnotation(fire)
+        mapView.setVisibleMapRect(MKMapRect(origin: MKMapPointForCoordinate(fire.coordinate), size: MKMapSizeMake(0, 3000)), animated: false)
+        mapView.setCenterCoordinate(fire.coordinate, animated: false)
         descriptionLabel.text = fire.fireDescription
         
         // Fetch some addresses
