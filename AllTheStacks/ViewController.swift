@@ -74,16 +74,45 @@ class ViewController: UIViewController {
         }
         
         self.fetchedResultsController = fetchedResultsController
+        
+        refreshMap()
+
     }
+    
+    func refreshMap() {
+        guard let fetchedResultsController = fetchedResultsController else { return }
+        if let fires = fetchedResultsController.fetchedObjects as? [Fire] where fires.count > 0 {
+            for fire in fires {
+                mapView.removeAnnotation(fire) // just in case it's on there already
+                mapView.addAnnotation(fire)
+            }
+            
+            fires.reduce(CGRectZero) {
+            
+            }
+            
+        }
+    }
+
 }
 
 extension ViewController: NSFetchedResultsControllerDelegate {
     
-//    func controllerDidChangeContent(controller: NSFetchedResultsController) {
-//        print(controller)
-//        print(controller.fetchRequest)
-//        print(controller.fetchedObjects)
-//        print("pause")
+    func controllerDidChangeContent(controller: NSFetchedResultsController) {
+        refreshMap()
+    }
+    
+//    func controller(controller: NSFetchedResultsController,
+//        didChangeObject anObject: AnyObject,
+//        atIndexPath indexPath: NSIndexPath?,
+//        forChangeType type: NSFetchedResultsChangeType,
+//        newIndexPath newIndexPath: NSIndexPath?) {
+//            
+//            if let fire = anObject as? Fire where type == .Insert {
+//                print("got a new one! \(anObject)")
+//                mapView.addAnnotation(fire)
+//            }
+//            
 //    }
     
 

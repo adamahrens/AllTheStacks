@@ -8,6 +8,7 @@
 
 import Foundation
 import CoreData
+import MapKit
 
 class Fire: NSManagedObject {
     class func create(dictionary : NSDictionary, managedObjectContext: NSManagedObjectContext) {
@@ -45,6 +46,14 @@ class Fire: NSManagedObject {
                 fire.latitude = NSNumber(double: latitude!)
                 fire.longitude = NSNumber(double: longitude!)
             }
+        }
+    }
+}
+
+extension Fire: MKAnnotation {
+    var coordinate: CLLocationCoordinate2D {
+        get {
+            return CLLocationCoordinate2D(latitude: CLLocationDegrees(latitude!), longitude: CLLocationDegrees(longitude!))
         }
     }
 }
