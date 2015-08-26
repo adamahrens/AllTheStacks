@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		431AF4201B8E391E00830BB1 /* LocationLookupOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431AF41F1B8E391E00830BB1 /* LocationLookupOperation.swift */; settings = {ASSET_TAGS = (); }; };
 		431B8F871B8D47AD00E5DCD3 /* FireModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 431B8F851B8D47AD00E5DCD3 /* FireModel.xcdatamodeld */; };
 		431B8F8B1B8D526200E5DCD3 /* Fire+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431B8F891B8D526200E5DCD3 /* Fire+CoreDataProperties.swift */; };
 		431B8F8C1B8D526200E5DCD3 /* Fire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431B8F8A1B8D526200E5DCD3 /* Fire.swift */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		431AF41F1B8E391E00830BB1 /* LocationLookupOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationLookupOperation.swift; sourceTree = "<group>"; };
 		431B8F861B8D47AD00E5DCD3 /* FireModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FireModel.xcdatamodel; sourceTree = "<group>"; };
 		431B8F891B8D526200E5DCD3 /* Fire+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Fire+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		431B8F8A1B8D526200E5DCD3 /* Fire.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fire.swift; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 				4351200F1B8CED50003A711B /* NetworkOperation.swift */,
 				435120111B8CFD77003A711B /* LogOperation.swift */,
 				435120131B8D043B003A711B /* CoreDataOperation.swift */,
+				431AF41F1B8E391E00830BB1 /* LocationLookupOperation.swift */,
 			);
 			name = Operations;
 			sourceTree = "<group>";
@@ -194,6 +197,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				431AF4201B8E391E00830BB1 /* LocationLookupOperation.swift in Sources */,
 				435120121B8CFD77003A711B /* LogOperation.swift in Sources */,
 				435120101B8CED50003A711B /* NetworkOperation.swift in Sources */,
 				43511FFB1B8CE650003A711B /* ViewController.swift in Sources */,

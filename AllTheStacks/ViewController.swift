@@ -85,6 +85,10 @@ class ViewController: UIViewController {
             for fire in fires {
                 mapView.removeAnnotation(fire) // just in case it's on there already
                 mapView.addAnnotation(fire)
+                
+                // Reverse GeoLocate the address
+                let locationLookup = LocationLookupOperation(location: CLLocation(latitude: fire.coordinate.latitude, longitude: fire.coordinate.longitude), fire: fire)
+                OperationManager.sharedManager.addOperation(locationLookup)
             }
    
             let zoomRect = fires.reduce(MKMapRectNull) { (mapRect: MKMapRect, fire: Fire) in
@@ -95,7 +99,6 @@ class ViewController: UIViewController {
             self.mapView.setVisibleMapRect(zoomRect, edgePadding: UIEdgeInsetsMake(74, 10, 10, 10), animated: true)
         }
     }
-
 }
 
 extension ViewController: NSFetchedResultsControllerDelegate {
@@ -116,7 +119,4 @@ extension ViewController: NSFetchedResultsControllerDelegate {
 //            }
 //            
 //    }
-    
-
-    
 }
