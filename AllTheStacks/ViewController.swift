@@ -27,7 +27,7 @@ class ViewController: UIViewController {
     }
     
     var fetchedResultsController: NSFetchedResultsController?
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -87,10 +87,6 @@ class ViewController: UIViewController {
             for fire in fires {
                 mapView.removeAnnotation(fire) // just in case it's on there already
                 mapView.addAnnotation(fire)
-                
-                // Reverse GeoLocate the address
-                let locationLookup = LocationLookupOperation(location: CLLocation(latitude: fire.coordinate.latitude, longitude: fire.coordinate.longitude), fire: fire)
-                OperationManager.sharedManager.addOperation(locationLookup)
             }
    
             let zoomRect = fires.reduce(MKMapRectNull) { (mapRect: MKMapRect, fire: Fire) in

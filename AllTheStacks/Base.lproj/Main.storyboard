@@ -91,22 +91,53 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2uC-x5-SaT">
-                                <rect key="frame" x="277" y="285" width="46" height="30"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="QE4-Ux-dzE">
+                                <rect key="frame" x="20" y="20" width="560" height="560"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="faU-ex-6te">
+                                        <rect key="frame" x="0.0" y="0.0" width="560" height="493"/>
+                                        <animations/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AgT-qc-F6Z">
+                                        <rect key="frame" x="0.0" y="493" width="560" height="28"/>
+                                        <animations/>
+                                        <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="buttonPressed:" destination="qv7-WF-0u3" eventType="touchUpInside" id="5wv-9i-iD4"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="faK-rL-g24">
+                                        <rect key="frame" x="0.0" y="521" width="560" height="19.5"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cnn-gG-PmV">
+                                        <rect key="frame" x="0.0" y="540.5" width="560" height="19.5"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <animations/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="buttonPressed:" destination="qv7-WF-0u3" eventType="touchUpInside" id="nBB-Pf-54Z"/>
-                                </connections>
-                            </button>
+                            </stackView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="2uC-x5-SaT" firstAttribute="centerX" secondItem="aAe-Sc-iCz" secondAttribute="centerX" id="E4b-Lj-Lxq"/>
-                            <constraint firstItem="2uC-x5-SaT" firstAttribute="centerY" secondItem="aAe-Sc-iCz" secondAttribute="centerY" id="g6p-kz-q2o"/>
+                            <constraint firstItem="QE4-Ux-dzE" firstAttribute="top" secondItem="85V-b9-ci6" secondAttribute="bottom" id="F7D-PX-HCi"/>
+                            <constraint firstItem="QE4-Ux-dzE" firstAttribute="trailing" secondItem="aAe-Sc-iCz" secondAttribute="trailingMargin" id="Pcz-mk-c0U"/>
+                            <constraint firstItem="QE4-Ux-dzE" firstAttribute="leading" secondItem="aAe-Sc-iCz" secondAttribute="leadingMargin" id="hy4-nF-nlv"/>
+                            <constraint firstItem="Lfd-M1-CBE" firstAttribute="top" secondItem="QE4-Ux-dzE" secondAttribute="bottom" constant="20" id="zul-N4-7Vv"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="addressLabel" destination="Cnn-gG-PmV" id="a5l-Lr-jMb"/>
+                        <outlet property="descriptionLabel" destination="faK-rL-g24" id="qv9-SZ-95q"/>
+                        <outlet property="imageView" destination="faU-ex-6te" id="SbR-BH-qiT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8RY-vf-CcW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

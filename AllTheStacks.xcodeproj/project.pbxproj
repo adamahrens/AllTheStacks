@@ -93,10 +93,10 @@
 				431B8F881B8D523D00E5DCD3 /* Model */,
 				435120151B8D0546003A711B /* Managers */,
 				43511FFA1B8CE650003A711B /* ViewController.swift */,
+				722C59E91B8E253D00329DCB /* FireViewController.swift */,
 				43511FFC1B8CE650003A711B /* Main.storyboard */,
 				4351200E1B8CED1E003A711B /* Operations */,
 				431B8F851B8D47AD00E5DCD3 /* FireModel.xcdatamodeld */,
-				722C59E91B8E253D00329DCB /* FireViewController.swift */,
 			);
 			path = AllTheStacks;
 			sourceTree = "<group>";
