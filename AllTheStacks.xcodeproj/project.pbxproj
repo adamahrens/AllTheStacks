@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		431B8F871B8D47AD00E5DCD3 /* FireModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 431B8F851B8D47AD00E5DCD3 /* FireModel.xcdatamodeld */; };
+		431B8F8B1B8D526200E5DCD3 /* Fire+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431B8F891B8D526200E5DCD3 /* Fire+CoreDataProperties.swift */; };
+		431B8F8C1B8D526200E5DCD3 /* Fire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431B8F8A1B8D526200E5DCD3 /* Fire.swift */; };
 		43511FF91B8CE650003A711B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43511FF81B8CE650003A711B /* AppDelegate.swift */; };
 		43511FFB1B8CE650003A711B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43511FFA1B8CE650003A711B /* ViewController.swift */; };
 		43511FFE1B8CE650003A711B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43511FFC1B8CE650003A711B /* Main.storyboard */; };
@@ -20,6 +23,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		431B8F861B8D47AD00E5DCD3 /* FireModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FireModel.xcdatamodel; sourceTree = "<group>"; };
+		431B8F891B8D526200E5DCD3 /* Fire+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Fire+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		431B8F8A1B8D526200E5DCD3 /* Fire.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fire.swift; sourceTree = "<group>"; };
 		43511FF51B8CE650003A711B /* AllTheStacks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AllTheStacks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43511FF81B8CE650003A711B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		43511FFA1B8CE650003A711B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -45,6 +51,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		431B8F881B8D523D00E5DCD3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				431B8F891B8D526200E5DCD3 /* Fire+CoreDataProperties.swift */,
+				431B8F8A1B8D526200E5DCD3 /* Fire.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		43511FEC1B8CE650003A711B = {
 			isa = PBXGroup;
 			children = (
@@ -65,10 +80,12 @@
 		43511FF71B8CE650003A711B /* AllTheStacks */ = {
 			isa = PBXGroup;
 			children = (
+				431B8F881B8D523D00E5DCD3 /* Model */,
 				435120151B8D0546003A711B /* Managers */,
 				43511FFA1B8CE650003A711B /* ViewController.swift */,
 				43511FFC1B8CE650003A711B /* Main.storyboard */,
 				4351200E1B8CED1E003A711B /* Operations */,
+				431B8F851B8D47AD00E5DCD3 /* FireModel.xcdatamodeld */,
 			);
 			path = AllTheStacks;
 			sourceTree = "<group>";
@@ -179,6 +196,9 @@
 				43511FFB1B8CE650003A711B /* ViewController.swift in Sources */,
 				43511FF91B8CE650003A711B /* AppDelegate.swift in Sources */,
 				435120141B8D043B003A711B /* CoreDataOperation.swift in Sources */,
+				431B8F8C1B8D526200E5DCD3 /* Fire.swift in Sources */,
+				431B8F871B8D47AD00E5DCD3 /* FireModel.xcdatamodeld in Sources */,
+				431B8F8B1B8D526200E5DCD3 /* Fire+CoreDataProperties.swift in Sources */,
 				435120171B8D0583003A711B /* CoreDataManager.swift in Sources */,
 				4351200C1B8CE90F003A711B /* OperationManager.swift in Sources */,
 			);
@@ -328,8 +348,22 @@
 				435120091B8CE650003A711B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		431B8F851B8D47AD00E5DCD3 /* FireModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				431B8F861B8D47AD00E5DCD3 /* FireModel.xcdatamodel */,
+			);
+			currentVersion = 431B8F861B8D47AD00E5DCD3 /* FireModel.xcdatamodel */;
+			path = FireModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 43511FED1B8CE650003A711B /* Project object */;
 }

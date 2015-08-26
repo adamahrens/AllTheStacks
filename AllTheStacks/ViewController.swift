@@ -20,7 +20,13 @@ class ViewController: UIViewController {
         }
         
         // Good URL, Add the operation
-        let operation = NetworkOperation(url: url)
-        OperationManager.sharedManager.addOperation(operation)
+        let fetchFireDetails = NetworkOperation(url: url)
+        OperationManager.sharedManager.addOperation(fetchFireDetails)
+        
+        // Don't want to perform the CoreData operation
+        // Until the Network Operation Completes
+        let coreDataOperation = CoreDataOperation(model: Fire.self)
+        coreDataOperation.addDependency(fetchFireDetails)
+        OperationManager.sharedManager.addOperation(coreDataOperation)
     }
 }

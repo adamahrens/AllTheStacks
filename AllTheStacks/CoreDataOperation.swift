@@ -9,20 +9,25 @@
 import UIKit
 
 final class CoreDataOperation: NSOperation {
-    private var dictionary: NSDictionary?
-    private var array: NSArray?
     
-    convenience init(dictionary: NSDictionary) {
-       self.init()
-        self.dictionary = dictionary
-    }
+    // The CoreDataModel class to create
+    private let model: AnyClass
     
-    convenience init(array: NSArray) {
-        self.init()
-        self.array = array
+    // The data we need to add to the CoreData
+    var dictionary: NSDictionary?
+    
+    init(model: AnyClass) {
+        self.model = model
     }
     
     override func main() {
+        guard let dataDictionary = dictionary else {
+            return
+        }
         
+        // Lets make a Fire
+        if model == Fire.self {
+            Fire.create(dataDictionary, managedObjectContext: CoreDataManager.sharedManager.backgroundManagedObjectContext)
+        }
     }
 }

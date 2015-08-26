@@ -14,7 +14,8 @@ class CoreDataManager {
     static let sharedManager = CoreDataManager()
     
     // Public
-    let managedObjectContext : NSManagedObjectContext
+    let mainManagedObjectContext : NSManagedObjectContext        // Main Thread Only
+    let backgroundManagedObjectContext : NSManagedObjectContext  // Background Saving
     
     // Private
     private let persistentStoreCoordinator : NSPersistentStoreCoordinator?
@@ -22,14 +23,25 @@ class CoreDataManager {
     private var persistentStore: NSPersistentStore?
     
     init () {
-        let modelURL = NSBundle.mainBundle().URLForResource("FILL IN LATER", withExtension: "momd")
+        let modelURL = NSBundle.mainBundle().URLForResource("FireModel", withExtension: "momd")
         model = NSManagedObjectModel(contentsOfURL: modelURL!)!
         persistentStoreCoordinator = NSPersistentStoreCoordinator(managedObjectModel: model)
-        managedObjectContext = NSManagedObjectContext(concurrencyType: .MainQueueConcurrencyType)
-        managedObjectContext.persistentStoreCoordinator = persistentStoreCoordinator
+        
+        // Main Thread
+        mainManagedObjectContext = NSManagedObjectContext(concurrencyType: .MainQueueConcurrencyType)
+        mainManagedObjectContext.persistentStoreCoordinator = persistentStoreCoordinator
+        
+        // Background Thread
+        backgroundManagedObjectContext = NSManagedObjectContext(concurrencyType: .PrivateQueueConcurrencyType)
+        backgroundManagedObjectContext.mergePolicy = NSMergePolicy(mergeType: .MergeByPropertyStoreTrumpMergePolicyType)
+        backgroundManagedObjectContext.parentContext = mainManagedObjectContext
+        
+        // Monitor for changes in the Background Thread that will be merged into the main
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("backgroundManagedObjectContextDidSave:"), name: NSManagedObjectContextDidSaveNotification, object: backgroundManagedObjectContext)
+        
         if let applicationURL = applicationDocumentsDirectory() {
-            let storeURL = applicationURL.URLByAppendingPathComponent("FILL IN LATER")
-            let migrationOptions = [NSPersistentStoreUbiquitousContentNameKey: "FILL IN LATER", NSMigratePersistentStoresAutomaticallyOption: true, NSInferMappingModelAutomaticallyOption: true]
+            let storeURL = applicationURL.URLByAppendingPathComponent("FireModel")
+            let migrationOptions = [NSPersistentStoreUbiquitousContentNameKey: "FireModel", NSMigratePersistentStoresAutomaticallyOption: true, NSInferMappingModelAutomaticallyOption: true]
             do {
                 persistentStore = try persistentStoreCoordinator!.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: storeURL, options: migrationOptions)
             } catch {
@@ -48,9 +60,9 @@ class CoreDataManager {
     }
     
     func saveChanges() -> Bool {
-        if managedObjectContext.hasChanges {
+        if mainManagedObjectContext.hasChanges {
             do {
-                try managedObjectContext.save()
+                try mainManagedObjectContext.save()
                 return true
             } catch {
                 print("Unable to save Managed Object Context changes \(error)")
@@ -59,5 +71,13 @@ class CoreDataManager {
         }
         
         return false
+    }
+    
+    func backgroundManagedObjectContextDidSave(notification: NSNotification) {
+        // Dont know the thread called on but want the backgroundContext
+        // To propogate the changes to the main thread context
+        NSOperationQueue.mainQueue().addOperationWithBlock {
+            self.mainManagedObjectContext.mergeChangesFromContextDidSaveNotification(notification)
+        }
     }
 }

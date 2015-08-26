@@ -28,10 +28,8 @@ final class NetworkOperation: NSOperation {
             return
         }
 
-        let request = NSURLRequest(URL: url)
         let session = NSURLSession.sharedSession()
-        let task = session.dataTaskWithRequest(request) { data, response, error in
-            
+        let task = session.dataTaskWithURL(url) { data, response, error in
             guard let data = data, let response = response as? NSHTTPURLResponse else {
                 return
             }
@@ -40,15 +38,25 @@ final class NetworkOperation: NSOperation {
             let localizedResponse = NSHTTPURLResponse.localizedStringForStatusCode(response.statusCode)
             let updatedMessage = "Fetched from \(self.url.absoluteString) with result of \(localizedResponse)"
             let logOperation = LogOperation(logMessage: updatedMessage)
-            OperationManager.sharedManager.addOperation(logOperation)
+            
             
             do {
                 // Let's serialize the data like a boss
                 let serialized = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments) as! NSDictionary
                 let serializedOperation = LogOperation(logMessage: "\(serialized)")
-                OperationManager.sharedManager.addOperation(serializedOperation)
                 
-                // Let's save it to CoreData
+                // More dependencies
+                logOperation.addDependency(serializedOperation)
+                OperationManager.sharedManager.addOperation(serializedOperation)
+                OperationManager.sharedManager.addOperation(logOperation)
+                
+                // See if we have any CoreData Dependencies
+                // That we need to pass the data to
+                for dependency in self.dependencies {
+                    if let coreDataDependency = dependency as? CoreDataOperation {
+                        coreDataDependency.dictionary = serialized
+                    }
+                }
             } catch {
                 
             }
