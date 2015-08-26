@@ -76,6 +76,7 @@ class CoreDataManager: NSObject {
         if backgroundManagedObjectContext.hasChanges {
             do {
                 try backgroundManagedObjectContext.save()
+                OperationManager.sharedManager.addOperation(LogOperation(logMessage: "Saved Background"))
                 return true
             } catch {
                 print("Unable to save Background Managed Object Context")

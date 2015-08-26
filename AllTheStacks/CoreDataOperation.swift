@@ -28,6 +28,10 @@ final class CoreDataOperation: NSOperation {
         // Lets make a Fire
         if model == Fire.self {
             Fire.create(dataDictionary, managedObjectContext: CoreDataManager.sharedManager.backgroundManagedObjectContext)
+            
+            // Save it
+            CoreDataManager.sharedManager.saveBackgroundChanges()
+            CoreDataManager.sharedManager.saveChanges()
         }
     }
 }

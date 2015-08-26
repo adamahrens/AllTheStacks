@@ -18,6 +18,20 @@ class Fire: NSManagedObject {
         // Incident is a Dictionary
         for incident in incidents {
             if let id = incident["id"] as? Int, property = incident["properties"] as? NSDictionary {
+                
+                let fetchRequest = NSFetchRequest(entityName: "Fire")
+                let predicate = NSPredicate(format: "id == \(id)")
+                fetchRequest.predicate = predicate
+                
+                do {
+                    let result = try CoreDataManager.sharedManager.mainManagedObjectContext.executeFetchRequest(fetchRequest)
+                    if result.count > 0 {
+                        return;
+                    }
+                } catch {
+                    OperationManager.sharedManager.addOperation(LogOperation(logMessage: "Error finding exisiting fires"))
+                }
+                
                 // We have the id of the incident, look at the properties in
                 let fireDescription = property["descript"] as? String
                 let latitude = property["latitude"] as? Double
@@ -30,9 +44,6 @@ class Fire: NSManagedObject {
                 fire.fireDescription = fireDescription
                 fire.latitude = NSNumber(double: latitude!)
                 fire.longitude = NSNumber(double: longitude!)
-                
-                // Save it
-                CoreDataManager.sharedManager.saveBackgroundChanges()
             }
         }
     }

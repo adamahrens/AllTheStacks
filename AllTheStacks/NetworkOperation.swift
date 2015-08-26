@@ -52,8 +52,8 @@ final class NetworkOperation: NSOperation {
                 
                 // More dependencies
                 logOperation.addDependency(serializedOperation)
-                //OperationManager.sharedManager.addOperation(serializedOperation)
-                //OperationManager.sharedManager.addOperation(logOperation)
+                OperationManager.sharedManager.addOperation(serializedOperation)
+                OperationManager.sharedManager.addOperation(logOperation)
                 
                 for dependency in coreDataOperations {
                     dependency.dictionary = serialized
