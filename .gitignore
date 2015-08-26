@@ -1,10 +1,10 @@
 AllTheStacks.xcodeproj/project.xcworkspace/xcshareddata
 AllTheStacks.xcodeproj/xcuserdata/adamahrens.xcuserdatad/xcdebugger
 
+.idea/
 .DS_Store
 AllTheStacks.xcodeproj/project.xcworkspace/xcuserdata/MikeDave.xcuserdatad/
 AllTheStacks.xcodeproj/xcuserdata/MikeDave.xcuserdatad/
-
 
 AllTheStacks.xcodeproj/project.xcworkspace/xcuserdata/adamahrens.xcuserdatad/UserInterfaceState.xcuserstate
 AllTheStacks/FlickrAPI.plist
