@@ -17,6 +17,7 @@ final class LogOperation: NSOperation {
     
     override func main() {
         if cancelled {
+            OperationManager.sharedManager.addOperation(LogOperation(logMessage: "Operation was cancelled"))
             return
         }
         

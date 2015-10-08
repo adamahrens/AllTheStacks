@@ -8,16 +8,16 @@
         <relationship name="fire" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Fire" inverseName="address" inverseEntity="Fire" syncable="YES"/>
     </entity>
     <entity name="Fire" representedClassName=".Fire" syncable="YES">
-        <attribute name="endDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="endDate" attributeType="Date" syncable="YES"/>
         <attribute name="fireDescription" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="startDate" optional="YES" attributeType="Date" syncable="YES"/>
-        <relationship name="address" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Address" inverseName="fire" inverseEntity="Address" syncable="YES"/>
+        <relationship name="address" maxCount="1" deletionRule="Nullify" destinationEntity="Address" inverseName="fire" inverseEntity="Address" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Fire" positionX="-360" positionY="-27" width="128" height="148"/>
         <element name="Address" positionX="-63" positionY="27" width="128" height="118"/>
+        <element name="Fire" positionX="-360" positionY="-27" width="128" height="148"/>
     </elements>
 </model>

@@ -18,7 +18,11 @@ class Fire: NSManagedObject {
         
         // Incident is a Dictionary
         for incident in incidents {
-            if let id = incident["id"] as? Int, property = incident["properties"] as? NSDictionary {
+            if let property = incident["properties"] as? NSDictionary {
+                
+                guard let id = property["ESRI_OID"] as? Int else {
+                    break;
+                }
                 
                 let fetchRequest = NSFetchRequest(entityName: "Fire")
                 let predicate = NSPredicate(format: "id == \(id)")

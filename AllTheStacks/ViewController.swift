@@ -36,7 +36,7 @@ class ViewController: UIViewController {
         setupFetchedResultsController()
         
         // Fetch fires!
-        guard let url = NSURL(string: "http://opendata.minneapolismn.gov/datasets/b527484ac4eb490ea321b35fd5bcec43_0.geojson") else {
+        guard let url = NSURL(string: "http://opendata.minneapolismn.gov/datasets/8e618e3ca702468bb4f26452b6641d16_0.geojson") else {
             // Bad URL, Create Logging operation
             return
         }

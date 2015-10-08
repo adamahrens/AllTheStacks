@@ -65,6 +65,7 @@ final class NetworkOperation: NSOperation {
                 }
             } catch {
                 // Handle JSON parsing error
+                OperationManager.sharedManager.addOperation(LogOperation(logMessage: "Errored. Come on"))
             }
         } catch {
             // Handle NSURLConnection request error
